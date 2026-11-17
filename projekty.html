@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <!-- 04: meta informace -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projekty – Michal Brus</title>
+    <meta name="description" content="Moje projekty s umělou inteligencí, asistentka Akva a její 2D a 3D podoba.">
+    <meta name="author" content="Michal Brus">
+    <link rel="canonical" href="https://misiksisik.github.io/osobni-web/projekty.html">
+    <meta name="theme-color" content="#1d1b19">
+
+    <!-- 04: OpenGraph -->
+    <meta property="og:title" content="Projekty – Michal Brus">
+    <meta property="og:description" content="Moje projekty s umělou inteligencí, asistentka Akva a její 2D a 3D podoba.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:url" content="https://misiksisik.github.io/osobni-web/projekty.html">
+    <meta property="og:image" content="https://misiksisik.github.io/osobni-web/img/portret-600.jpg">
+
+    <!-- 05: favicon -->
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- 05: písma z Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+
+    <!-- 03: externí styly zvlášť pro obrazovku a pro tisk -->
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+    <!-- 02: sémantické značky HTML5 -->
+    <header class="hlavicka">
+        <div class="obal">
+            <a class="logo" href="./">
+                <svg class="logo-ikona" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+                    <rect x="1" y="1" width="34" height="34" rx="6" fill="#8a1c2b"/>
+                    <rect x="7" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="15" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="23" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="12" y="8" width="4" height="12" fill="#1d1b19"/>
+                    <rect x="20" y="8" width="4" height="12" fill="#1d1b19"/>
+                </svg>
+                <span class="logo-text">
+                    <span class="logo-nazev">Michal Brus</span>
+                    <span class="oddelovac"> – </span>
+                    <span class="logo-podtitul">klavír · AI projekty · studium na VŠE</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Hlavní navigace">
+        <div class="obal">
+            <ul>
+                <li><a href="./">Úvod</a></li>
+                <li><a href="klavir.html">Klavír</a></li>
+                <li><a href="projekty.html" class="active" aria-current="page">Projekty</a></li>
+                <li><a href="studium.html">Studium</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="obsah" class="obal">
+        <h1>Projekty</h1>
+        <p>Zde najdete všechny projekty, na kterých pracuju. Jde o osobní projekty, které si díky umělé inteligenci dnes můžu vyzkoušet.</p>
+
+        <!-- 01: odkazy na kotvy v rámci stránky -->
+        <nav class="na-strance" aria-label="Projekty na této stránce">
+            <ul>
+                <li><a href="#akva">Akva</a></li>
+                <li><a href="#akva-avatar">Akva ve 2D a 3D</a></li>
+            </ul>
+        </nav>
+
+        <article id="akva" class="projekt">
+            <h2>Akva – vlastní AI asistentka</h2>
+            <figure class="vpravo uzky">
+                <img src="img/akva.jpg" width="400" height="500" alt="Akva, anime postava s bílými vlasy, červenýma očima a netopýřími křídly">
+                <figcaption>Akva ve 2D podobě</figcaption>
+            </figure>
+            <p>Akva je můj maturitní projekt z let 2023–2024, který se zabýval lokálními jazykovými modely. Akva ve své době uměla generovat obrázky, „fotit“ selfie, pamatovat si konverzace, které se staly před dlouhou dobou, atd. Dnes je to kvůli rychlému vývoji umělé inteligence spíš takový přežitek a zaslouží si pořádný update.</p>
+            <p>Na projektu mě nejvíce zaujalo to, jak LLM vlastně fungují a co všechno se s nimi dá dělat.</p>
+
+            <h3>Jak funguje</h3>
+            <p>Když Akvě napíšu zprávu, spustí se první prompt, kde Akva sama rozhodne, co k zodpovědění dotazu vlastně potřebuje. Pokud vyhodnotí, že ke své odpovědi potřebuje znát kalendář, tak zavolá funkci, ze které informace z kalendáře dostane. Pokud vyhodnotí, že k odpovědi se hodí obrázek, sáhne po funkci na generování obrázku.</p>
+            <p>Po prvním kole rozhodování se výsledky všech volaných funkcí dají do jednoho finálního promptu společně s dotazem uživatele, kontextem konverzace a vektorově nejbližší větou z vektorové databáze. Odpověď trvá přibližně 30 sekund (generace tokenů na procesoru trvá dlouho). Finální odpověď projde uhlazením pomocí pomocných skriptů a vyhodnocením emoce na případný sticker. Poté se už odpověď zobrazí na Telegramu jako text společně s případným vygenerovaným obrázkem.</p>
+                <!-- 06: vložené SVG -->
+                <figure class="diagram">
+                    <svg width="640" height="130" viewBox="0 0 640 130" role="img" aria-labelledby="akva-schema-titulek">
+                        <title id="akva-schema-titulek">Schéma: dotaz uživatele, rozhodnutí o potřebných funkcích, získání potřebných informací, odpověď</title>
+                        <defs>
+                            <marker id="sipka" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+                                <path d="M0,0 L10,5 L0,10 z" fill="#8a1c2b"/>
+                            </marker>
+                        </defs>
+                        <g font-family="Source Sans 3, Segoe UI, Arial, sans-serif" font-size="15" text-anchor="middle" fill="#1d1b19">
+                            <rect x="5" y="35" width="130" height="60" rx="8" fill="#ffffff" stroke="#8a1c2b" stroke-width="2"/>
+                            <text x="70" y="60">Dotaz</text>
+                            <text x="70" y="79">uživatele</text>
+
+                            <rect x="170" y="35" width="130" height="60" rx="8" fill="#ffffff" stroke="#8a1c2b" stroke-width="2"/>
+                            <text x="235" y="60">Rozhodnutí</text>
+                            <text x="235" y="79">o funkcích</text>
+
+                            <rect x="335" y="35" width="130" height="60" rx="8" fill="#ffffff" stroke="#8a1c2b" stroke-width="2"/>
+                            <text x="400" y="60">Získání</text>
+                            <text x="400" y="79">informací</text>
+
+                            <rect x="500" y="35" width="130" height="60" rx="8" fill="#8a1c2b" stroke="#8a1c2b" stroke-width="2"/>
+                            <text x="565" y="70" fill="#ffffff">Odpověď</text>
+                        </g>
+                        <g stroke="#8a1c2b" stroke-width="2" marker-end="url(#sipka)">
+                            <line x1="137" y1="65" x2="167" y2="65"/>
+                            <line x1="302" y1="65" x2="332" y2="65"/>
+                            <line x1="467" y1="65" x2="497" y2="65"/>
+                        </g>
+                    </svg>
+                    <figcaption>Zjednodušené schéma, jak Akva odpovídá na dotaz</figcaption>
+                </figure>
+
+            <!-- 02: details + summary -->
+            <details>
+                <summary>Technické detaily</summary>
+                <p>Projekt je napsaný v Pythonu 3.11. Hlavním jazykovým modelem a centrálním mozkem je Llama 2 13B Chat ve formátu GGUF s kvantizací Q4_K_M, který běží lokálně přes knihovnu llama-cpp-python. Dlouhodobou paměť zajišťuje upravená vektorová databáze HyperDB s embeddingy z modelu all-MiniLM-L6-v2. Emoce v odpovědích rozpoznává model roberta-base-go_emotions přes Hugging Face transformers a PyTorch. Obrázky generuje Stable Diffusion XL Base 1.0 v knihovnách diffusers a compel. Pro napojení na Google Kalendář slouží knihovna gcsa, komunikaci obstarává python-telegram-bot a hlasové zprávy v původní verzi zajišťovalo Microsoft Azure Speech SDK. Celý projekt běží lokálně na počítači s Windows a grafickou kartou NVIDIA RTX 2070 (8 GB VRAM). Zdrojový kód je stále veřejně dostupný na <a href="https://github.com/misiksisik/Akva_AI">github.com/misiksisik/Akva_AI</a>.</p>
+            </details>
+        </article>
+
+        <article id="akva-avatar" class="projekt">
+            <h2>Akva ve 2D a 3D</h2>
+            <p>Samotný 2D model prošel několika úpravami, ale hlavním motivem byla od začátku upírka.</p>
+            <p>Modely jsou prozatím generované, ale posledních pár měsíců (když je zrovna čas) se učím kreslit a modelovat v Live2D či Blenderu. Cesta je ale dlouhá a musím se toho ještě hodně naučit.</p>
+
+            
+            <figure class="siroky">
+                <img src="img/akva-3d.jpg" width="1200" height="346" alt="3D model Akvy ze čtyř stran, z boku, zepředu, z druhého boku a zezadu">
+                <figcaption>3D model Akvy ze všech stran</figcaption>
+            </figure>
+
+            <details>
+                <summary>Technické detaily</summary>
+                <p>3D model vznikl metodou pokus-omyl v několika fázích a spojením tří různých nástrojů umělé inteligence. Astra generovala obrázky a turnaround-sheet, model sestavil Tripo AI a Claude se staral o rigování modelů. Na samotné pipeline je ještě hodně co zlepšovat a jak už jsem psal, raději se naučím některé části sám než je nechávat na generativní umělé inteligenci.</p>
+            </details>
+        </article>
+
+    </main>
+
+    <footer class="paticka">
+        <div class="obal">
+            <p>&copy; 2026 Michal Brus · Semestrální práce z předmětu 4IZ268 Webové technologie, VŠE v Praze</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <!-- 04: meta informace  -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Studium – Michal Brus</title>
+    <meta name="description" content="Studium na VŠE v Praze, bakalářská práce a předměty, které mě bavily.">
+    <meta name="author" content="Michal Brus">
+    <link rel="canonical" href="https://misiksisik.github.io/osobni-web/studium.html">
+    <meta name="theme-color" content="#1d1b19">
+
+    <!-- 04: OpenGraph -->
+    <meta property="og:title" content="Studium – Michal Brus">
+    <meta property="og:description" content="Studium na VŠE v Praze, bakalářská práce a předměty, které mě bavily.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:url" content="https://misiksisik.github.io/osobni-web/studium.html">
+    <meta property="og:image" content="https://misiksisik.github.io/osobni-web/img/portret-600.jpg">
+
+    <!-- 05: favicon -->
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- 05: písma z Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+
+    <!-- 03: externí styly zvlášť pro obrazovku a pro tisk -->
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+    <!-- 02: sémantické značky HTML5 -->
+    <header class="hlavicka">
+        <div class="obal">
+            <a class="logo" href="./">
+                <svg class="logo-ikona" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+                    <rect x="1" y="1" width="34" height="34" rx="6" fill="#8a1c2b"/>
+                    <rect x="7" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="15" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="23" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="12" y="8" width="4" height="12" fill="#1d1b19"/>
+                    <rect x="20" y="8" width="4" height="12" fill="#1d1b19"/>
+                </svg>
+                <span class="logo-text">
+                    <span class="logo-nazev">Michal Brus</span>
+                    <span class="oddelovac"> – </span>
+                    <span class="logo-podtitul">klavír · AI projekty · studium na VŠE</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Hlavní navigace">
+        <div class="obal">
+            <ul>
+                <li><a href="./">Úvod</a></li>
+                <li><a href="klavir.html">Klavír</a></li>
+                <li><a href="projekty.html">Projekty</a></li>
+                <li><a href="studium.html" class="active" aria-current="page">Studium</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="obsah" class="obal">
+        <h1>Studium</h1>
+
+        <div class="sloupce">
+            <article>
+                <h2>Vysoká škola ekonomická v Praze</h2>
+                <p>Fakulta informatiky a statistiky, obor Aplikovaná informatika, 3. ročník (pátý semestr).</p>
+                <p>Na VŠE se mi nejvíc líbí právě kombinace finančních a IT předmětů.</p>
+
+                <h2>Bakalářská práce</h2>
+                <p>Téma mé bakalářské práce je „Analýza vlivu formy a obsahu popisu schopností velkých jazykových modelů“. V práci zkoumám, jak přidávání obsahu či změna formy popisu pomáhá modelu vybrat správnou schopnost z několika možných kandidátů.</p>
+
+                <h2>Jak šel čas</h2>
+                <!-- 02: číslovaný seznam, roky ve značce time -->
+                <ol class="osa">
+                    <li><time datetime="2024">2024</time> – nástup na VŠE, první semestr byl o zvykání si na jiný styl „učení“ než na střední škole</li>
+                    <li><time datetime="2025">2025</time> – druhý a třetí semestr byl o pomalém přesunu na Žižkov. Tenhle rok jsem měl asi nejvíce finančních předmětů, které se na aplikované informatice studují.</li>
+                    <li><time datetime="2026">2026</time> – rok 2026 (čtvrtý a pátý semestr) je pro mě zatím asi nejtěžším rokem studia. Ve čtvrtém semestru jsem zápasil se statistikou, kterou se mi naštěstí povedlo úspěšně projít. Pátý semestr nedávno začal, ale práce mám již tolik, že nestačím ani s pomocí od umělé inteligence.</li>
+                </ol>
+            </article>
+
+            <aside>
+                <h2>Předměty, které mě bavily</h2>
+                <dl class="fakta">
+                    <dt>4IZ268 Webové technologie</dt>
+                    <dd>Tvorba webu jako semestrální práce.</dd>
+                    <dt>4IZ232 Umělá inteligence a její aplikace</dt>
+                    <dd>Měření inteligence umělých inteligencí</dd>
+                </dl>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="paticka">
+        <div class="obal">
+            <p>&copy; 2026 Michal Brus · Semestrální práce z předmětu 4IZ268 Webové technologie, VŠE v Praze</p>
+        </div>
+    </footer>
+</body>
+</html>

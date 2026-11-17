@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Styly pro tisk (media="print") – 03: tiskneme jen to, co má smysl
+   Soubor je samostatný, styly pro obrazovku se při tisku nenačítají.
+   ========================================================================== */
+
+@page {
+    margin: 2cm;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 12pt;
+    line-height: 1.45;
+    color: #000000;
+    background: #ffffff;
+}
+
+/* Skrýt to, co na papíře nedává smysl */
+.preskocit,
+.menu,
+.na-strance,
+.rozcestnik,
+.logo-ikona {
+    display: none;
+}
+
+/* Identifikace webu zůstává (textem, takže funguje i bez obrázků) */
+.hlavicka {
+    margin-bottom: 1cm;
+    padding-bottom: 0.3cm;
+    border-bottom: 2pt solid #000000;
+}
+
+.logo {
+    color: #000000;
+    text-decoration: none;
+}
+
+.logo-nazev {
+    display: block;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+.logo-podtitul {
+    display: block;
+    font-size: 10pt;
+}
+
+.oddelovac {
+    display: none;
+}
+
+h1 {
+    font-size: 22pt;
+    margin: 0 0 0.4cm;
+}
+
+h2 {
+    font-size: 15pt;
+    margin: 0.6cm 0 0.2cm;
+}
+
+h3 {
+    font-size: 13pt;
+}
+
+h1,
+h2,
+h3 {
+    page-break-after: avoid;
+    break-after: avoid;
+}
+
+/* Odkazy černé a podtržené, u externích odkazů vypsat adresu */
+a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+a[href^="http"]::after,
+a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+}
+
+/* Postranní sloupec se vytiskne pod hlavním obsahem s rámečkem */
+aside {
+    margin-top: 0.5cm;
+    padding: 0.3cm 0.4cm;
+    border: 1pt solid #999999;
+}
+
+/* Obrázky menší a nerozdělené mezi stránky */
+img {
+    max-width: 8cm;
+    height: auto;
+}
+
+.siroky img,
+svg {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    margin: 0 0 0.4cm;
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+figcaption {
+    font-size: 9pt;
+    font-style: italic;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+caption {
+    font-weight: bold;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 2pt 6pt;
+    border: 1pt solid #000000;
+    text-align: left;
+}
+
+tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+/* Rozbalovací doplňující detaily se netisknou (prohlížeče je tisknou zavřené) */
+details {
+    display: none;
+}
+
+address {
+    font-style: normal;
+}
+
+.paticka {
+    margin-top: 1cm;
+    padding-top: 0.2cm;
+    border-top: 1pt solid #000000;
+    font-size: 9pt;
+}
+

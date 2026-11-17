@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <!-- 04: meta informace -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kontakt – Michal Brus</title>
+    <meta name="description" content="Jak mě kontaktovat, e-mail a GitHub.">
+    <meta name="author" content="Michal Brus">
+    <link rel="canonical" href="https://misiksisik.github.io/osobni-web/kontakt.html">
+    <meta name="theme-color" content="#1d1b19">
+
+    <!-- 04: OpenGraph -->
+    <meta property="og:title" content="Kontakt – Michal Brus">
+    <meta property="og:description" content="Jak mě kontaktovat, e-mail a GitHub.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:url" content="https://misiksisik.github.io/osobni-web/kontakt.html">
+    <meta property="og:image" content="https://misiksisik.github.io/osobni-web/img/portret-600.jpg">
+
+    <!-- 05: favicon -->
+    <link rel="icon" href="img/favicon.ico" sizes="any">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- 05: písma z Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap">
+
+    <!-- 03: externí styly zvlášť pro obrazovku a pro tisk -->
+    <link rel="stylesheet" href="css/style.css" media="screen">
+    <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+    <a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+
+    <!-- 02: sémantické značky HTML5  -->
+    <header class="hlavicka">
+        <div class="obal">
+            <a class="logo" href="./">
+                <svg class="logo-ikona" width="36" height="36" viewBox="0 0 36 36" aria-hidden="true" focusable="false">
+                    <rect x="1" y="1" width="34" height="34" rx="6" fill="#8a1c2b"/>
+                    <rect x="7" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="15" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="23" y="8" width="7" height="20" fill="#faf7f2"/>
+                    <rect x="12" y="8" width="4" height="12" fill="#1d1b19"/>
+                    <rect x="20" y="8" width="4" height="12" fill="#1d1b19"/>
+                </svg>
+                <span class="logo-text">
+                    <span class="logo-nazev">Michal Brus</span>
+                    <span class="oddelovac"> – </span>
+                    <span class="logo-podtitul">klavír · AI projekty · studium na VŠE</span>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="menu" aria-label="Hlavní navigace">
+        <div class="obal">
+            <ul>
+                <li><a href="./">Úvod</a></li>
+                <li><a href="klavir.html">Klavír</a></li>
+                <li><a href="projekty.html">Projekty</a></li>
+                <li><a href="studium.html">Studium</a></li>
+                <li><a href="kontakt.html" class="active" aria-current="page">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="obsah" class="obal">
+        <h1>Kontakt</h1>
+
+        <div class="sloupce">
+            <article>
+                <p>Napište mi, pokud máte otázky ke klavíru nebo k projektům, nebo jen tak.</p>
+
+                <h2>Kde mě najdete</h2>
+                <!-- 02: element address -->
+                <address>
+                    <dl class="fakta">
+                        <dt>E-mail</dt>
+                        <dd><a href="mailto:brum13@vse.cz">brum13@vse.cz</a></dd>
+                        <dt>GitHub</dt>
+                        <dd><a href="https://github.com/misiksisik">github.com/misiksisik</a></dd>
+                    </dl>
+                </address>
+            </article>
+
+            <aside>
+                <h2>O tomto webu</h2>
+                <p>Web vznikl jako semestrální práce předmětu 4IZ268 Webové technologie na VŠE v Praze.</p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="paticka">
+        <div class="obal">
+            <p>&copy; 2026 Michal Brus · Semestrální práce z předmětu 4IZ268 Webové technologie, VŠE v Praze</p>
+        </div>
+    </footer>
+</body>
+</html>
