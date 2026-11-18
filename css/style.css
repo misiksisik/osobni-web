@@ -337,6 +337,7 @@ figcaption {
     margin-top: 0.3rem;
     font-size: 0.9rem;
     color: var(--text-tlumeny);
+    text-align: center;
 }
 
 /* portrét jako polaroid: bílý rámeček a lehce natočený */
@@ -354,7 +355,6 @@ figcaption {
 
 .portret figcaption {
     color: #55505a;
-    text-align: center;
 }
 
 /* plovoucí obrázek obtékaný textem */
