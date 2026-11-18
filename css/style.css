@@ -1,32 +1,49 @@
-/* ==========================================================================
-   Styly pro obrazovku (media="screen")
-   Čísla v komentářích odkazují na cvičení 4IZ268, ze kterého technika je.
-   ========================================================================== */
 
-/* --- Barvy a písma na jednom místě (custom properties) --- */
+/* S refactoringem a uhlazením (obou) CSS souboru pomáhala AI */
+/* S AI jsem konzultoval detaily, vzhled tmavého a světlé režimu */
+
+
+/* Tmavý režim */
 :root {
-    --pozadi: #faf7f2;        /* slonová kost */
-    --text: #1d1b19;          /* téměř černá, kontrast s pozadím cca 16 : 1 */
-    --text-tlumeny: #5a544c;  /* kontrast cca 7 : 1 */
-    --akcent: #8a1c2b;        /* vínová, kontrast s pozadím cca 8 : 1 */
-    --akcent-tmavy: #5e1220;
-    --plocha: #f1ebe1;
-    --linka: #ddd3c3;
+    --pozadi: #131a24;        
+    --text: #e9e6ef;         
+    --text-tlumeny: #a7a3b3;  
+    --akcent: #ff7a8a;        
+    --akcent-tmavy: #ff5a6e;
+    --plocha: #1c2431;        
+    --linka: #2f3a4b;
+    --zlata: #d4af5a;         
+    --hlavicka: #0c1118;     
+    --hlavicka-text: #f4f1ea;
+    --hlavicka-tlumeny: #c9c4bb;
+    --stin: rgba(0, 0, 0, 0.4);
     --pismo-text: "Source Sans 3", "Segoe UI", Arial, sans-serif;
     --pismo-nadpis: "Source Serif 4", Georgia, "Times New Roman", serif;
 }
 
+/* Světlý režim */
+@media (prefers-color-scheme: light) {
+    :root {
+        --pozadi: #fbfaf7;        
+        --text: #16141a;         
+        --text-tlumeny: #55505a;  
+        --akcent: #a3132b;        
+        --akcent-tmavy: #6e0d1d;
+        --plocha: #f1eee8;
+        --linka: #ddd6cb;
+        --stin: rgba(29, 27, 25, 0.12);
+    }
+}
 *,
 *::before,
 *::after {
-    box-sizing: border-box;   /* 04: šířka včetně paddingu a rámečku */
+    box-sizing: border-box;   /* šířka včetně paddingu a rámečku */
 }
-
-/* --- 03: základní formátování textu --- */
+/* formátování textu */
 body {
     margin: 0;
     font-family: var(--pismo-text);
-    font-size: 1.0625rem;     /* 17 px */
+    font-size: 1.0625rem;    
     line-height: 1.6;
     color: var(--text);
     background-color: var(--pozadi);
@@ -51,6 +68,16 @@ h2 {
     margin: 1.4em 0 0.5em;
 }
 
+/* zlatý netopýr před nadpisy H2 */
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 1.1em;
+    height: 0.55em;
+    margin-right: 0.4em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath fill='%23d4af37' d='M12 4.3L11.3 2.4L10.7 4.4C9 3.6 6 2.7 3.2 3C1.8 3.2.7 4 0 5.1C1.6 4.9 2.6 5.5 3 6.7C4.2 5.9 5.6 6.1 6.4 7.3C7.6 6.5 9.2 6.9 10 8.5C10.6 9.5 11.4 10.2 12 10.8C12.6 10.2 13.4 9.5 14 8.5C14.8 6.9 16.4 6.5 17.6 7.3C18.4 6.1 19.8 5.9 21 6.7C21.4 5.5 22.4 4.9 24 5.1C23.3 4 22.2 3.2 20.8 3C18 2.7 15 3.6 13.3 4.4L12.7 2.4Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
 h3 {
     font-size: 1.15rem;
     margin: 1.2em 0 0.4em;
@@ -63,7 +90,9 @@ dl {
     margin: 0 0 1em;
 }
 
-/* --- 03: odkazy, vždy podtržené a jednoznačně odlišené --- */
+
+
+/* odkazy */
 a {
     color: var(--akcent);
     text-decoration: underline;
@@ -74,8 +103,21 @@ a:visited {
     color: var(--akcent-tmavy);
 }
 
+/* označený text v Akvině rudé */
+::selection {
+    background-color: #a3132b;
+    color: #ffffff;
+}
+
+/* zlaté odrážky a čísla v seznamech */
+main li::marker {
+    color: var(--zlata);
+}
+
+/* při najetí se odkaz podtrhne zlatě */
 a:hover {
     color: var(--akcent-tmavy);
+    text-decoration-color: var(--zlata);
     text-decoration-thickness: 2px;
 }
 
@@ -84,7 +126,6 @@ a:focus-visible {
     outline-offset: 2px;
 }
 
-/* Odkaz „Přeskočit na obsah“ – mimo obrazovku, ukáže se po stisku Tab */
 .preskocit {
     position: absolute;
     left: -9999px;
@@ -99,22 +140,21 @@ a:focus-visible {
     left: 1rem;
 }
 
-/* --- Obal, který drží obsah ve středu --- */
+/* Obal pro obsah ve středu */
 .obal {
     max-width: 60rem;
     margin: 0 auto;
     padding: 0 1rem;
 }
 
-/* --- Hlavička a identifikace webu --- */
 .hlavicka {
     position: relative;
-    background-color: var(--text);
-    color: var(--pozadi);
+    background-color: var(--hlavicka);
+    color: var(--hlavicka-text);
     padding: 0.8rem 0 calc(0.8rem + 10px);
 }
 
-/* 07: pruh „klaviatury“ čistě z CSS (opakovaný gradient místo obrázku) */
+/* pruh „klaviatury“ */
 .hlavicka::after {
     content: "";
     position: absolute;
@@ -122,19 +162,19 @@ a:focus-visible {
     right: 0;
     bottom: 0;
     height: 10px;
-    background-color: var(--pozadi);
+    background-color: var(--hlavicka-text);
     background-image:
         repeating-linear-gradient(90deg,
             transparent 0, transparent 14px,
-            var(--text) 14px, var(--text) 22px,
+            var(--hlavicka) 14px, var(--hlavicka) 22px,
             transparent 22px, transparent 28px,
-            var(--text) 28px, var(--text) 36px,
+            var(--hlavicka) 28px, var(--hlavicka) 36px,
             transparent 36px, transparent 56px,
-            var(--text) 56px, var(--text) 64px,
+            var(--hlavicka) 56px, var(--hlavicka) 64px,
             transparent 64px, transparent 70px,
-            var(--text) 70px, var(--text) 78px,
+            var(--hlavicka) 70px, var(--hlavicka) 78px,
             transparent 78px, transparent 84px,
-            var(--text) 84px, var(--text) 92px,
+            var(--hlavicka) 84px, var(--hlavicka) 92px,
             transparent 92px, transparent 98px);
 }
 
@@ -142,20 +182,19 @@ a:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    color: var(--pozadi);
+    color: var(--hlavicka-text);
     text-decoration: none;
 }
 
 .logo:visited,
 .logo:hover {
-    color: var(--pozadi);
+    color: var(--hlavicka-text);
 }
 
 .logo-ikona {
     flex-shrink: 0;
 }
 
-/* pomlčka mezi názvem a podtitulem je jen pro zobrazení bez CSS */
 .oddelovac {
     display: none;
 }
@@ -174,17 +213,17 @@ a:focus-visible {
 
 .logo-podtitul {
     font-size: 0.9rem;
-    color: #d9d2c5;
+    color: var(--hlavicka-tlumeny);
 }
 
-/* --- Navigace + zvýraznění aktivní položky --- */
+/* Navigace */
 .menu {
     background-color: var(--plocha);
     border-bottom: 1px solid var(--linka);
 }
 
 .menu ul {
-    display: flex;            /* 04: flexbox */
+    display: flex;         
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
@@ -204,17 +243,17 @@ a:focus-visible {
 }
 
 .menu a.active {
-    background-color: var(--akcent);
+    background-color: #a3132b;
     color: #ffffff;
 }
 
-/* --- Hlavní obsah --- */
+/* Hlavní obsah */
 main.obal {
     padding-top: 1.5rem;
     padding-bottom: 2.5rem;
 }
 
-/* 04: vícesloupcový layout bez tabulek */
+/* Layout bez tabulek */
 .sloupce {
     display: flex;
     align-items: flex-start;
@@ -252,7 +291,7 @@ aside h2 {
     margin: 0 0 0.6em;
 }
 
-/* --- 04: rozcestník v mřížce (grid) --- */
+/* Grid */
 .karty {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
@@ -264,15 +303,15 @@ aside h2 {
 
 .karta {
     padding: 1rem 1.2rem;
-    background-color: #ffffff;
+    background-color: var(--plocha);
     border: 1px solid var(--linka);
     border-radius: 8px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;  /* 07 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
 }
 
 .karta:hover {
-    transform: translateY(-3px);                             /* 07: transformace */
-    box-shadow: 0 6px 16px rgba(29, 27, 25, 0.12);
+    transform: translateY(-3px);                             
+    box-shadow: 0 6px 16px var(--stin);
 }
 
 .karta h3 {
@@ -283,10 +322,10 @@ aside h2 {
     margin-bottom: 0;
 }
 
-/* --- Obrázky --- */
+/* Obrázky */
 img,
 svg {
-    max-width: 100%;          /* 07: responzivní obrázky */
+    max-width: 100%;         
     height: auto;
 }
 
@@ -300,13 +339,25 @@ figcaption {
     color: var(--text-tlumeny);
 }
 
+/* portrét jako polaroid: bílý rámeček a lehce natočený */
+.portret {
+    padding: 0.5rem 0.5rem 0.3rem;
+    background-color: #f8f6f2;
+    box-shadow: 0 4px 12px var(--stin);
+    transform: rotate(-1.5deg);
+}
+
 .portret img {
     display: block;
     width: 100%;
-    border-radius: 8px;
 }
 
-/* 04: plovoucí obrázek obtékaný textem */
+.portret figcaption {
+    color: #55505a;
+    text-align: center;
+}
+
+/* plovoucí obrázek obtékaný textem */
 .vpravo {
     float: right;
     width: 45%;
@@ -324,7 +375,7 @@ figcaption {
     width: 32%;
 }
 
-/* článek uzavře plovoucí obsah (náhrada za clear: both) */
+
 article {
     display: flow-root;
 }
@@ -343,16 +394,32 @@ article {
 .diagram {
     clear: both;
     padding: 1rem;
-    background-color: #ffffff;
+    background-color: var(--plocha);
     border: 1px solid var(--linka);
     border-radius: 8px;
 }
 
-/* --- Projekty --- */
-.projekt + .projekt {
+/* Projekty */
+/* oddělovač sekcí: dvě čáry a zlatý netopýr uprostřed */
+.projekt + .projekt,
+.rozcestnik {
+    position: relative;
     margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--linka);
+    padding-top: 1.5rem;
+}
+
+.projekt + .projekt::before,
+.rozcestnik::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 14px;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath fill='%23d4af37' d='M12 4.3L11.3 2.4L10.7 4.4C9 3.6 6 2.7 3.2 3C1.8 3.2.7 4 0 5.1C1.6 4.9 2.6 5.5 3 6.7C4.2 5.9 5.6 6.1 6.4 7.3C7.6 6.5 9.2 6.9 10 8.5C10.6 9.5 11.4 10.2 12 10.8C12.6 10.2 13.4 9.5 14 8.5C14.8 6.9 16.4 6.5 17.6 7.3C18.4 6.1 19.8 5.9 21 6.7C21.4 5.5 22.4 4.9 24 5.1C23.3 4 22.2 3.2 20.8 3C18 2.7 15 3.6 13.3 4.4L12.7 2.4Z'/%3E%3C/svg%3E") center / 28px 14px no-repeat,
+        linear-gradient(var(--linka), var(--linka)) left center / calc(50% - 26px) 1px no-repeat,
+        linear-gradient(var(--linka), var(--linka)) right center / calc(50% - 26px) 1px no-repeat;
 }
 
 .na-strance ul {
@@ -375,7 +442,6 @@ summary {
     cursor: pointer;
 }
 
-/* --- 02 + 03: tabulka (jen pro data) --- */
 table {
     width: 100%;
     margin: 0 0 1.5rem;
@@ -400,8 +466,8 @@ thead th {
     border-bottom: 2px solid var(--akcent);
 }
 
-tbody tr:nth-child(even) {        /* 03: pseudotřída */
-    background-color: rgba(241, 235, 225, 0.5);
+tbody tr:nth-child(even) {  
+     background-color: var(--plocha);
 }
 
 /* --- Časová osa --- */
@@ -419,11 +485,10 @@ address {
     font-style: normal;
 }
 
-/* --- Patička --- */
 .paticka {
     padding: 1rem 0;
-    background-color: var(--text);
-    color: #d9d2c5;
+    background-color: var(--hlavicka);
+    color: var(--hlavicka-tlumeny);
     font-size: 0.9rem;
 }
 
@@ -432,10 +497,10 @@ address {
 }
 
 .paticka a {
-    color: #ffffff;
+    color: var(--hlavicka-text);
 }
 
-/* --- 07: animace, nenápadné zobrazení obsahu po načtení --- */
+/* animace, ze cvičení 7 */
 @keyframes objeveni {
     from {
         opacity: 0;
@@ -451,7 +516,6 @@ main {
     animation: objeveni 0.4s ease-out;
 }
 
-/* Kdo má v systému vypnuté animace, nedostane je ani tady */
 @media (prefers-reduced-motion: reduce) {
     main,
     .karta {
@@ -460,7 +524,6 @@ main {
     }
 }
 
-/* --- 03 + 07: media queries, responzivní úpravy pro úzké displeje --- */
 @media (max-width: 44rem) {
     h1 {
         font-size: 1.75rem;

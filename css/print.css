@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Styly pro tisk (media="print") – 03: tiskneme jen to, co má smysl
-   Soubor je samostatný, styly pro obrazovku se při tisku nenačítají.
-   ========================================================================== */
+/* S refactoringem a uhlazením (obou) CSS souboru pomáhala AI  */
 
 @page {
     margin: 2cm;
@@ -25,7 +22,6 @@ body {
     display: none;
 }
 
-/* Identifikace webu zůstává (textem, takže funguje i bez obrázků) */
 .hlavicka {
     margin-bottom: 1cm;
     padding-bottom: 0.3cm;
@@ -73,7 +69,6 @@ h3 {
     break-after: avoid;
 }
 
-/* Odkazy černé a podtržené, u externích odkazů vypsat adresu */
 a {
     color: #000000;
     text-decoration: underline;
@@ -85,14 +80,14 @@ a[href^="mailto:"]::after {
     font-size: 9pt;
 }
 
-/* Postranní sloupec se vytiskne pod hlavním obsahem s rámečkem */
+/* Postranní sloupec */
 aside {
     margin-top: 0.5cm;
     padding: 0.3cm 0.4cm;
     border: 1pt solid #999999;
 }
 
-/* Obrázky menší a nerozdělené mezi stránky */
+/* Obrázky */
 img {
     max-width: 8cm;
     height: auto;
@@ -137,7 +132,7 @@ tr {
     break-inside: avoid;
 }
 
-/* Rozbalovací doplňující detaily se netisknou (prohlížeče je tisknou zavřené) */
+/* Rozbalovací doplňující detaily se netisknou */
 details {
     display: none;
 }
